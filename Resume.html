@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <header>
+        <h1>Jeet Patel</h1>
+        <h2>Web-Developer</h2>
+        <img src="profile.jpg" alt="error" height="150px" width="150px">
+    </header>
+    <section id="about">
+        <article>
+            <h3>About Me:</h3>
+            <button id="hide">Hide</button>
+            <button id="show">View About Me</button>
+            <p>Hello myself <b>Jeet Patel.</b> I completed my Graduation from Gujarat Technological University and
+                currently i am pursuing Master in
+                Fullstack Webdevelopment with Python form IT Vedant and i have done vairous projects like flipkat clone
+                and flight
+                booking website.</p>
+
+        </article>
+    </section>
+
+    <section id="skills">
+        <article>
+            <h3>SKills:</h3>
+            <ul>
+                <li class="skill-item">HTML</li>
+                <li class="skill-item">CSS</li>
+                <li class="skill-item">JavaScript</li>
+                <li class="skill-item">Python-Django</li>
+                <li class="skill-item">MySQL</li>
+                <li class="skill-item">MongoDB</li>
+                <li class="skill-item">ReactJS</li>
+                <li class="skill-item">jQuery</li>
+                <li class="skill-item">PHP</li>
+            </ul>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h3>Education:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Institute</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10th</td>
+                        <td>Upasana Lions English Medium School</td>
+                        <td>2017</td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td>Jay Ambea Science School</td>
+                        <td>2019</td>
+                    </tr>
+                    <tr>
+                        <td>B.E-IT</td>
+                        <td>Gujarat Technological University</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <td>Course in Python</td>
+                        <td>IT Vedant</td>
+                        <td>2025</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </article>
+    </section>
+    <section id="contact">
+        <article>
+            <h3>Contact Me:</h3>
+            <form action="#" id="contactform">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter Your Full name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Enter your valid email"> <br><br>
+
+                <label for="message">Message Feild:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter Your message here"></textarea><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </article>
+    </section>
+
+    <footer>
+        <p>connect with me with others social media platform:</p> <br>
+        <a href="https://www.linkedin.com/" target="_blank" class="social">LinkedIn</a> |
+        <a href="https://github.com/" target="_blank" class="social">GitHub</a> |
+        <a href="https://www.instagram.com/" target="_blank" class="social">Instagram</a>
+    </footer>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        // jQuery Code //
+        $(document).ready(function () {
+            // Q-2.
+            $("#hide").click(function () {
+                $("p").hide(3000);
+            });
+            $("#show").click(function () {
+                $("p").show(3000);
+            });
+            // Q-3.
+            $(".skill-item").hover(
+                function () {
+                    $(this).animate({ paddingLeft: "30px" }, 300);
+                    $(this).css('background-color', 'lightblue');
+                },
+                function () {
+                    $(this).animate({ paddingLeft: "0" }, 300);
+                    $(this).css('background-color', 'transparent');
+                }
+            );
+            // Q-7. 
+            $(".social").hover(
+                function () {
+                    $(this).fadeTo('fast', 0.5)
+                },
+                function () {
+                    $(this).fadeTo('fast', 1)
+                }
+            );
+            // Q-4.
+            $("#contactform").submit(function (event) {
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var message = $("#message").val();
+                var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (name == "" || email == "" || message == "") {
+                    alert("Please fill out all fields.");
+                    event.preventDefault();
+                } else if (!emailPattern.test(email)) {
+                    alert("Please enter a valid email address.");
+                    event.preventDefault();
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
